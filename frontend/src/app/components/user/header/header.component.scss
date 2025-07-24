@@ -1,0 +1,60 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e6f3fa;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 8px #eee;
+    direction: rtl;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        height: 40px;
+        margin-left: 8px;
+    }
+
+    span {
+        font-weight: bold;
+        font-size: 1.3rem;
+        color: #0a446a;
+    }
+}
+
+.nav {
+    flex: 1;
+    margin: 0 2rem;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .hello-message {
+        font-size: 1.1rem;
+        color: #0a446a;
+        margin-left: 0.5rem;
+
+        b {
+            margin-right: 0.3rem;
+        }
+    }
+
+    .profile-icon {
+        font-size: 1.6rem;
+        background: none;
+        border: none;
+        color: #0a446a;
+
+        &:hover {
+            background: #bee3f8;
+        }
+    }
+}

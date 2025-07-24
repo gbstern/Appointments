@@ -1,0 +1,74 @@
+<form [formGroup]="registrationForm" class="container" (ngSubmit)="register()">
+    <div class="formInput">
+        <h2>יצירת משתמש חדש</h2>
+        <div class="inputs">
+            <div formGroupName="personalInformation" class="pesonal">
+                <h4>פרטים אישיים</h4>
+                <p-floatlabel variant="on">
+                    <input pInputText id="isNumber" autocomplete="off" formControlName="idNumber" />
+                    <label for="isNumber">מספר זהות</label>
+                </p-floatlabel>
+                <p-floatlabel variant="on">
+                    <input pInputText id="firstName" autocomplete="off" formControlName="firstName" />
+                    <label for="firstName">שם פרטי</label>
+                </p-floatlabel>
+                <p-floatlabel variant="on">
+                    <input pInputText id="lastName" autocomplete="off" formControlName="lastName" />
+                    <label for="lastName">שם משפחה</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on">
+                    <p-datepicker inputId="birthDate" showIcon iconDisplay="input" formControlName="birthDate"
+                        [minDate]="minDate" [maxDate]="maxDate" />
+                    <label for="birthDate">תאריך לידה</label>
+                </p-floatlabel>
+                <div class="flex flex-wrap gap-4" class="radioButton">
+                    <div class="flex items-center">
+                        <p-radiobutton name="gender" value="Male" inputId="male"
+                            formControlName="gender"></p-radiobutton>
+                        <label class="ml-2" for="male">זכר</label>
+                    </div>
+
+                    <div class="flex items-center">
+                        <p-radiobutton name="gender" value="Female" inputId="female"
+                            formControlName="gender"></p-radiobutton>
+                        <label class="ml-2" for="female">נקבה</label>
+                    </div>
+                </div>
+            </div>
+
+            <div formGroupName="contactInformation" class="contact">
+                <h4>יצירת קשר</h4>
+                <p-floatlabel variant="on">
+                    <input pInputText id="address" autocomplete="off" formControlName="address" />
+                    <label for="address">כתובת</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on">
+                    <p-inputmask id="phone" mask="999-999-9999" formControlName="phone" />
+                    <label for="phone">טלפון</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on">
+                    <input pInputText id="email" autocomplete="off" formControlName="email" />
+                    <label for="email">מייל</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on">
+                    <p-password inputId="password" formControlName="password" [toggleMask]="true" [feedback]="false" />
+                    <label for="password">סיסמה</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on">
+                    <p-password inputId="passwordValidate" formControlName="passwordValidate" [toggleMask]="true"
+                        [feedback]="false" />
+                    <label for="passwordValidate">אימות סיסמה</label>
+                </p-floatlabel>
+                <div class="button">
+                    <p-button label="הרשם" type="submit"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

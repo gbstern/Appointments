@@ -1,0 +1,12 @@
+<nav>
+    @if (loginService.isManager()) {
+    <p routerLink="manager">מנהל</p>
+    }
+    <p routerLink="">בית</p>
+    <p routerLink="allDoctors">חיפוש רופאים</p>
+    <p routerLink="ourTeam">הנבחרת שלנו</p>
+    <p routerLink="vision">החזון שלנו</p>
+    @if (loginService.currentUser && !loginService.isManager()) {
+    <p routerLink="myAppointments">התורים שלי</p>
+    }
+</nav>

@@ -1,0 +1,17 @@
+<div class="page">
+    <h2>כניסה לאזור האישי</h2>
+    <form [formGroup]="loginForm" class="container" (ngSubmit)="login()">
+        <h4>עם הסיסמה שלך</h4>
+        <p-floatlabel variant="on">
+            <input pInputText id="isNumber" autocomplete="off" formControlName="idNumber" />
+            <label for="isNumber">מספר זהות</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on">
+            <p-password inputId="password" formControlName="password" [toggleMask]="true" [feedback]="false" />
+            <label for="password">סיסמה</label>
+        </p-floatlabel>
+        <div class="button">
+            <p-button label="כניסה" type="submit" />
+        </div>
+    </form>
+</div>

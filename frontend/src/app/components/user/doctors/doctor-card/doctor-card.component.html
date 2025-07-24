@@ -1,0 +1,43 @@
+<p-card>
+    <div class="container">
+        <div class="first">
+            <div class="img">
+                <img [src]="doctor.gender == 0 ? 'assets/images/man.png' : 'assets/images/woman.png' ">
+            </div>
+            <p-button (onClick)="onBook()">זימון תור</p-button>
+        </div>
+
+        <div>
+            <h3>ד"ר {{doctor.name}}</h3>
+            <p>תחום שירות</p>
+            <p>{{specialtyName}}</p>
+            <p>מספר רשיון</p>
+            <p>{{doctor.licenseNum}}</p>
+        </div>
+        <p-divider layout="vertical" />
+
+        <div>
+            <h3>יצירת קשר</h3>
+            <p>מספר טלפון</p>
+            <p>{{doctor.phone}}</p>
+            <p>מייל</p>
+            <p>{{doctor.email}}</p>
+        </div>
+
+        <div>
+            <h3>שעות פעילות</h3>
+            @if (doctor.workingHours.length > 0) {
+            <div>
+                @for (wh of doctor.workingHours; track $index) {
+                <p>{{ getDayName(wh.day) }}: {{ wh.endTime }} - {{ wh.startTime }}</p>
+                }
+            </div>
+            }
+            @else {
+            <p>אין שעות פעילות</p>
+            }
+
+        </div>
+
+    </div>
+</p-card>

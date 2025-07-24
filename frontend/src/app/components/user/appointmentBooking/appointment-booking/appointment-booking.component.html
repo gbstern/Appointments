@@ -1,0 +1,19 @@
+<div class="card flex justify-center">
+    <p-toast />
+    <p-confirmdialog #cd>
+        <ng-template #headless let-message let-onAccept="onAccept" let-onReject="onReject">
+            <div class="container">
+                <div class="icon">
+                    <i class="pi pi-calendar-clock"></i>
+                </div>
+                <span class="message-header">{{ message.header }}</span>
+                <p class="mb-0">{{ message.message }}</p>
+                <div class="buttons">
+                    <p-button label="אישור" (onClick)="onAccept()" styleClass="custom-width"></p-button>
+                    <p-button label="ביטול" [outlined]="true" (onClick)="onReject()"></p-button>
+                </div>
+            </div>
+        </ng-template>
+    </p-confirmdialog>
+    <p-button label="זמן תור" [disabled]="!canBook" (click)="onBook()" rounded="true" />
+</div>

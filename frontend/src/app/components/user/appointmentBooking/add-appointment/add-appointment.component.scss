@@ -1,0 +1,224 @@
+.appointment-modal {
+    display: flex;
+    flex-direction: column;
+
+    .appointment-selection {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+
+        .hours-block {
+            width: 20vw;
+            
+        }
+    }
+
+    .last-colume {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+// .appointment-modal {
+//     background: #fff;
+//     border-radius: 16px;
+//     padding: 32px;
+//     box-shadow: 0 2px 10px #0002;
+//     max-width: 1200px;
+//     margin: 32px auto;
+//     direction: rtl;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     .title {
+//         color: #1291d2;
+//         text-align: center;
+//         margin-bottom: 24px;
+//         font-size: 2rem;
+//         font-weight: 600;
+//     }
+
+//     .appointment-content {
+//         display: flex;
+//         flex-direction: row-reverse;
+//         gap: 40px;
+//         justify-content: center;
+//         align-items: flex-start;
+//         margin-bottom: 24px;
+
+//         .appointment-selection {
+//             display: flex;
+//         }
+//     }
+
+//     .column {
+//         // background: #f7fafd;
+//         // border-radius: 16px;
+//         padding: 24px;
+//         min-width: 260px;
+//         min-height: 320px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+
+//     .working-hours-block {
+//         h2 {
+//             color: #292929;
+//             font-size: 1.15rem;
+//             margin-bottom: 18px;
+//             font-weight: bold;
+//         }
+
+//         .day-row {
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+//             gap: 20px;
+//             font-size: 1.08rem;
+//             margin-bottom: 8px;
+
+//             .day-name {
+//                 font-weight: 500;
+//             }
+
+//             .hours {
+//                 direction: ltr;
+//                 color: #1291d2;
+//                 font-weight: 400;
+//             }
+//         }
+//     }
+
+//     .hours-block {
+//         .select-hour-label {
+//             font-size: 1.1rem;
+//             margin-bottom: 10px;
+//             color: #292929;
+//             font-weight: 500;
+//         }
+
+//         .available-hours-grid {
+//             display: grid;
+//             grid-template-columns: repeat(3, 1fr);
+//             gap: 14px;
+
+//             button {
+//                 background: #e5eaf1;
+//                 border: none;
+//                 border-radius: 24px;
+//                 padding: 12px 0;
+//                 font-size: 1.1rem;
+//                 color: #292929;
+//                 width: 72px;
+//                 transition: background .2s, color .2s;
+//                 cursor: pointer;
+
+//                 &.selected,
+//                 &:focus {
+//                     background: #1291d2;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+
+//     .calendar-block {
+//         // כאן אתה יכול להוסיף עיצוב ספציפי ללוח השנה אם תרצה
+//         min-width: 290px;
+//     }
+
+//     .footer-actions {
+//         display: flex;
+//         flex-direction: row-reverse;
+//         gap: 18px;
+//         align-items: center;
+//         justify-content: flex-end;
+//         margin-top: 16px;
+
+//         .book-btn {
+//             background: linear-gradient(90deg, #1291d2 60%, #51c0ee 100%);
+//             color: #fff;
+//             border: none;
+//             border-radius: 14px;
+//             padding: 14px 32px;
+//             font-size: 1.2rem;
+//             font-weight: 600;
+//             box-shadow: 0 2px 8px #1291d255;
+//             cursor: pointer;
+//             transition: background .2s;
+
+//             &:disabled {
+//                 background: #c6d7e6;
+//                 cursor: not-allowed;
+//             }
+//         }
+
+//         .status-msg {
+//             color: #d21f1f;
+//             font-weight: 500;
+//             font-size: 1.1rem;
+//         }
+//     }
+
+//     /* Popup styles */
+//     .popup-overlay {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100vw;
+//         height: 100vh;
+//         background: rgba(0, 0, 0, 0.25);
+//         z-index: 9999;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+
+//         .popup-content {
+//             background: #fff;
+//             border-radius: 18px;
+//             padding: 36px 46px;
+//             box-shadow: 0 4px 24px #0003;
+//             max-width: 400px;
+//             text-align: right;
+
+//             h2 {
+//                 color: #1291d2;
+//                 margin-bottom: 20px;
+//             }
+
+//             div {
+//                 margin-bottom: 16px;
+//                 font-size: 1.12rem;
+//             }
+
+//             .popup-actions {
+//                 display: flex;
+//                 gap: 14px;
+//                 justify-content: flex-end;
+
+//                 button {
+//                     border: none;
+//                     border-radius: 10px;
+//                     padding: 8px 22px;
+//                     font-size: 1rem;
+//                     font-weight: 500;
+//                     cursor: pointer;
+//                     background: #1291d2;
+//                     color: #fff;
+
+//                     &.cancel {
+//                         background: #e5eaf1;
+//                         color: #292929;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

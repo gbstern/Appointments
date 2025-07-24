@@ -1,0 +1,32 @@
+.appointments-list {
+    .appointments-table {
+        width: 100%;
+        border-collapse: collapse;
+        direction: rtl;
+
+        th,
+        td {
+            border: 1px solid #eee;
+            padding: 0.5em 0.75em;
+            text-align: right;
+        }
+
+        th {
+            background: #f5f5f5;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+
+        button {
+            margin-left: 0.25em;
+        }
+    }
+
+    .no-appointments {
+        color: #888;
+        padding: 1em;
+        text-align: center;
+    }
+}

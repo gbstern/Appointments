@@ -1,0 +1,36 @@
+<div class="filter-container">
+    <h2>סינון רופאים</h2>
+    <div class="filters">
+        <p-multiSelect [options]="gender" [(ngModel)]="selectedGender" optionLabel="name" optionValue="eGender"
+            placeholder="מין" class="w-full md:w-80" (ngModelChange)="filterDoctors()" />
+
+        <input pInputText id="language" autocomplete="off" [(ngModel)]="selectedLanguage"
+            (ngModelChange)="filterDoctors()" placeholder="שפה" />
+
+
+        <input pInputText id="name" autocomplete="off" [(ngModel)]="selectedName" (ngModelChange)="filterDoctors()"
+            placeholder="שם רופא" />
+
+        <p-multiselect [options]="specialties" [(ngModel)]="selectedSpecialty" optionLabel="specialty" optionValue="id"
+            placeholder="תחום שירות" [maxSelectedLabels]="4" class="w-full md:w-80" showClear="true"
+            (ngModelChange)="filterDoctors()" />
+
+        <p-button (onClick)="resetFilters()"><i class="pi pi-refresh"></i>אפס סינון</p-button>
+    </div>
+</div>
+<h2>נמצאו {{filteredDoctors.length}} רופאים/ות</h2>
+<p-dataview>
+    <ng-template #list let-items>
+        @for (d of filteredDoctors; track $index) {
+        <app-doctor-card [doctor]="d" [specialtyName]="getSpecialtyName(d.specialtyId)" [getDayName]="getDayName"
+            (bookAppointment)="addAppoinmnent($event)">
+        </app-doctor-card>
+        <br />
+        }
+    </ng-template>
+</p-dataview>
+
+@if (filteredDoctors.length == 0) {
+<div>
+    <p>לא נמצאו רופאים מתאימים</p>
+</div>}

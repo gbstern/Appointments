@@ -1,0 +1,32 @@
+<p-card>
+    <div class="appointment-modal">
+        <h1 class="title">זימון תור לד"ר <span style="font-weight: lighter;">{{ this.doctorName }}</span></h1>
+        <div class="appointment-content">
+            <div class="appointment-selection">
+                <div class="column calendar-block">
+                    <h2 class="select-date-label">בחר תאריך</h2>
+                    <app-appointment-date-picker [date]="date" [minDate]="minDate" [maxDate]="maxDate"
+                        [disabledDates]="disabledDates" (dateSelected)="onDateSelected($event)">
+                    </app-appointment-date-picker>
+                </div>
+
+                <div class="column hours-block">
+                    <h2 class="select-hour-label">בחר שעה</h2>
+                    <app-appointment-hour-picker [availableHours]="availableHours" [selectedHour]="selectedHour"
+                        (hourSelected)="onHourSelected($event)" />
+                </div>
+                <div class="last-colume">
+                    <div class="column working-hours-block">
+                        <h2>ימי קבלה ושעות פעילות</h2>
+                        <app-working-hours [workingHours]="workingHours" [getDayName]="getDayName" />
+
+                    </div>
+
+                    <app-appointment-booking [selectedDate]="date" [selectedHour]="selectedHour"
+                        [canBook]="!!date && !!selectedHour" (book)="onBookAppointment()" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</p-card>

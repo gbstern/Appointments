@@ -1,0 +1,59 @@
+.profile-container {
+    margin-right: 5rem;
+    margin-left: 5rem;
+
+    .profile-card,
+    .profile-form-card {
+        margin: 2rem;
+        direction: rtl;
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin: 0;
+            font-weight: bold;
+
+            .profile-header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+        }
+
+        .profile-form-header {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding-right: 5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+
+            h2 {
+                margin: 0;
+                font-weight: bold;
+            }
+        }
+
+        .profile-fields {
+            margin-top: 1rem;
+            padding-right: 5rem;
+
+            .field-label {
+                font-weight: bold;
+                color: #183c7d;
+                text-align: right;
+            }
+
+            .field-value {
+                color: #222;
+                text-align: right;
+            }
+
+        }
+
+    }
+}

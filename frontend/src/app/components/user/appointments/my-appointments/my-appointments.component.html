@@ -1,0 +1,19 @@
+@if (loading) {
+<div>טוען תורים...</div>
+}
+@if (error) {
+<div>{{ error }}</div>
+}
+@if (!loading && !error) {
+<div>
+    <h2>תורים עתידיים</h2>
+    <app-appointment-list [appointments]="upcomingAppointments" [doctors]="doctors" userRole="patient" viewType="cards"
+        (cancel)="onCancel($event)" (reschedule)="onReschedule($event)" (bookNew)="onBookNew($event)">
+    </app-appointment-list>
+
+    <h2>ביקורים אחרונים</h2>
+    <app-appointment-list [appointments]="pastAppointments" [doctors]="doctors" userRole="patient" viewType="cards"
+        (cancel)="onCancel($event)" (reschedule)="onReschedule($event)" (bookNew)="onBookNew($event)">
+    </app-appointment-list>
+</div>
+}

@@ -1,0 +1,65 @@
+<div class="appointments-list">
+    @if (appointments.length > 0) {
+    <ng-container>
+        @if (viewType === 'cards') {
+        <div class="p-grid p-dir-rtl">
+            @for (a of appointments; track $index) {
+            <div >
+                <app-appointment-item [appointment]="a" [doctor]="getDoctor(a.doctorId)"
+                    [canCancel]="getActionPermissions(a).canCancel"
+                    [canReschedule]="getActionPermissions(a).canReschedule"
+                    [canBookNew]="getActionPermissions(a).canBookNew" (cancel)="cancel.emit($event)"
+                    [specialtyName]="getSpecialtyName(getDoctor(a.doctorId).specialtyId)"
+                    (reschedule)="reschedule.emit($event)" (bookNew)="bookNew.emit($event)">
+                </app-appointment-item>
+            </div>
+            }
+        </div>
+        }
+        @if (viewType === 'table') {
+        <table class=" appointments-table">
+            <thead>
+                <tr>
+                    <th>רופא</th>
+                    <th>תחום</th>
+                    <th>תאריך</th>
+                    <th>שעה</th>
+                    <th>פעולות</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (a of appointments; track $index) {
+                <tr>
+                    <td>{{ getDoctor(a.doctorId).name }}</td>
+                    <td>{{ getDoctor(a.doctorId).specialtyId }}</td>
+                    <td>{{ a.date }}</td>
+                    <td>{{ a.hour }}</td>
+                    <td>
+                        @if (getActionPermissions(a).canReschedule) {
+                        <button pButton type="button" icon="pi pi-calendar-edit"
+                            class="p-button-rounded p-button-info p-button-sm" (click)="reschedule.emit(a)"></button>
+                        }
+                        @if (getActionPermissions(a).canCancel) {
+                        <button pButton type="button" icon="pi pi-times"
+                            class="p-button-rounded p-button-danger p-button-sm" (click)="cancel.emit(a)"></button>
+                        }
+                        @if (getActionPermissions(a).canBookNew) {
+                        <button pButton type="button" icon="pi pi-calendar-plus"
+                            class="p-button-rounded p-button-success p-button-sm"
+                            (click)="bookNew.emit(getDoctor(a.doctorId))"></button>
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </ng-container>
+    }
+    @else {
+    <ng-template>
+        <div class="no-appointments">אין תורים להצגה.</div>
+    </ng-template>
+    }
+
+</div>

@@ -1,0 +1,48 @@
+<div class="profile-container">
+    @if (patient) {
+    <p-card class="profile-card">
+        <div class="profile-header">
+            <div class="img">
+                <img [src]="patient.gender == 0 ? `${imageUrl}male_user.png` : `${imageUrl}female_user.png` ">
+            </div>
+            <div class="profile-header-content">
+                <h2>{{patient.firstName}} {{patient.lastName}}</h2>
+                <div>תעודת זהות: {{patient.id}}</div>
+            </div>
+        </div>
+    </p-card>
+
+    <p-card class="profile-form-card ">
+        <div class="profile-form-header">
+            <h2 class="p-col-12 p-md-4 field-label">פרטי מטופל</h2>
+            <p-button icon="pi pi-user-edit" [rounded]="true" [text]="true" [raised]="true" (click)="editProfile()" />
+        </div>
+        <div class="profile-fields">
+            <div class="p-grid">
+                <p-divider></p-divider>
+
+                <div class="p-col-12 p-md-4 field-label">כתובת</div>
+                <div class="p-col-12 p-md-8 field-value">{{ patient.address }}</div>
+
+                <p-divider></p-divider>
+
+                <div class="p-col-12 p-md-4 field-label">מספר טלפון</div>
+                <div class="p-col-12 p-md-8 field-value">{{ patient.phone }}</div>
+
+                <p-divider></p-divider>
+
+                <div class="p-col-12 p-md-4 field-label">תאריך לידה</div>
+                <div class="p-col-12 p-md-8 field-value">{{ patient.birthDate | date:'dd/MM/yyyy' }}</div>
+
+                <p-divider></p-divider>
+
+                <div class="p-col-12 p-md-4 field-label">כתובת דוא"ל</div>
+                <div class="p-col-12 p-md-8 field-value">{{ patient.email }}</div>
+            </div>
+        </div>
+    </p-card>
+    }
+    @else {
+    <p>לא נמצאו נתוני מטופל.</p>
+    }
+</div>

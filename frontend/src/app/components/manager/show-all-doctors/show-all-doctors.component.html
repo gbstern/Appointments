@@ -1,0 +1,66 @@
+<div class="container">
+    <p-table [value]="doctors">
+        <ng-template #header>
+            <tr>
+                <th>מס' זהות</th>
+                <th>מס' רשיון</th>
+                <th>שם </th>
+                <th>התמחות</th>
+                <th>מין</th>
+                <th>טלפון</th>
+                <th>מייל</th>
+                <th>שעות עבודה</th>
+                <th>משך התור</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-doctor let-expanded="expanded">
+            <tr>
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.licenseNum }}</td>
+                <td>{{ doctor.name }}</td>
+                <td>{{ getSpecialtyName( doctor.specialtyId)}}</td>
+                <td>{{ doctor.gender }}</td>
+                <td>{{ doctor.phone }}</td>
+                <td>{{ doctor.email }}</td>
+                <td>
+                    @if (doctor.workingHours.length > 0) {
+                    <div>
+                        @for (wh of doctor.workingHours; track $index) {
+                        <p>{{ getDayName(wh.day) }}: {{ wh.endTime }} - {{ wh.startTime }}</p>
+                        }
+                    </div>
+                    }
+                    @else {
+                    <p>אין שעות פעילות</p>
+                    }
+                </td>
+                <td>{{ doctor.appDoration }}</td>
+            </tr>
+        </ng-template>
+        <ng-template #expandedrow let-doctor>
+            <tr>
+                <td colspan="2">
+                    <div class="p-4">
+                        <h5>working hours for {{ doctor.name }}</h5>
+                        <p-table [value]="doctor.workingHours" dataKey="id">
+                            <ng-template #header>
+                <th>יום</th>
+                <th>שעת התחלה</th>
+                <th>שעת סיום</th>
+        </ng-template>
+        <ng-template #body let-workingHours>
+            <tr>
+                <td>{{getDayName(workingHours.day) }}</td>
+                <td>{{ workingHours.startTime }}</td>
+                <td>{{ workingHours.endTime }}</td>
+                <td><p-button type="button" icon="pi pi-search" /></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+</td>
+</tr>
+</ng-template>
+
+</p-table>
+</div>

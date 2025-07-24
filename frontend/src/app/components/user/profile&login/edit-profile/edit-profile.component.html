@@ -1,0 +1,55 @@
+<div class="profile-container margin">
+    @if (patient) {
+    <p-card class="profile-card">
+        <div class="profile-header">
+            <div class="img">
+                <img [src]="patient.gender == 0 ? `${imageUrl}male_user.png` : `${imageUrl}female_user.png` ">
+            </div>
+            <div class="profile-header-content">
+                <h2>{{patient.firstName}} {{patient.lastName}}</h2>
+                <div>תעודת זהות: {{patient.id}}</div>
+            </div>
+        </div>
+    </p-card>
+
+    <p-card class="profile-form-card ">
+        <div class="profile-form-header">
+            <h2 class="p-col-12 p-md-4 field-label">פרטי מטופל</h2>
+        </div>
+        <div class="profile-fields">
+            <form [formGroup]="editProfileForm" class="p-grid" (ngSubmit)="edit()">
+                <p-divider></p-divider>
+
+                <div class="p-col-12 p-md-4 field-label">כתובת</div>
+                <input pInputText id="address" autocomplete="off" formControlName="address" />
+
+
+                <div class="p-col-12 p-md-4 field-label">מספר טלפון</div>
+                <input pInputText id="phone" autocomplete="off" formControlName="phone" />
+
+                <div class="p-col-12 p-md-4 field-label">תאריך לידה</div>
+                <p-datepicker inputId="birthDate" showIcon iconDisplay="input" formControlName="birthDate"
+                    [minDate]="minDate" [maxDate]="maxDate" />
+                <div class="p-col-12 p-md-4 field-label">כתובת דוא"ל</div>
+                <input pInputText id="email" autocomplete="off" formControlName="email" />
+
+                <div for="password" class="p-col-12 p-md-4 field-label">סיסמה</div>
+                <p-password inputId="password" formControlName="password" [toggleMask]="true" [feedback]="false" />
+
+                <div for="passwordValidate" class="p-col-12 p-md-4 field-label">אימות סיסמה</div>
+                <p-password inputId="passwordValidate" formControlName="passwordValidate" [toggleMask]="true"
+                    [feedback]="false" />
+
+
+                <br>
+                <div class="p-col-12">
+                    <p-button pButton type="submit" label="שמור" />
+                </div>
+            </form>
+        </div>
+    </p-card>
+    }
+    @else {
+    <p>לא נמצאו נתוני מטופל.</p>
+    }
+</div>

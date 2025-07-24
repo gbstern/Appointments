@@ -1,0 +1,69 @@
+<!-- <p>show-all-appointments works!</p>
+<button (click)="showAllAppointments()">show all appointments</button>
+<ul>
+    @for (a of appointments; track $index) {
+    <li>{{getPatientName(a.patientId)}} {{getDoctorName(a.doctorId)}} {{a.date}} {{a.hour}}</li>
+    }
+</ul>
+
+<input type="number" placeholder="appointmentId" #appointmentId>
+<button (click)="showAppointmentsById(+appointmentId.value)">show appointments by id</button>
+@if (appointmentsById) {
+<p>{{getPatientName(appointmentsById.patientId)}} {{getDoctorName(appointmentsById.doctorId)}} {{appointmentsById.date}}
+    {{appointmentsById.hour}}</p>
+}
+
+
+<input type="number" placeholder="doctorId" #doctorId>
+<button (click)="showAppointmentsByDoctor(doctorId.value)">show appointments by doctor</button>
+<ul>
+    @for (a of appointmentsByDoctor; track $index) {
+    <li>{{getPatientName(a.patientId)}} {{getDoctorName(a.doctorId)}} {{a.date}} {{a.hour}}</li>
+    }
+</ul>
+
+<input type="number" placeholder="patientId" #patientId>
+<button (click)="showAppointmentsByPatient(patientId.value)">show appointments by patient</button>
+<ul>
+    @for (a of appointmentByPatient; track $index) {
+    <li>{{getPatientName(a.patientId)}} {{getDoctorName(a.doctorId)}} {{a.date}} {{a.hour}}</li>
+    }
+</ul>
+
+<input type="date" placeholder="date" #date>
+<button (click)="showAppointmentsByDate(date.value)">show appointments by date</button>
+<ul>
+    @for (a of appointmentByDate; track $index) {
+    <li>{{getPatientName(a.patientId)}} {{getDoctorName(a.doctorId)}} {{a.date}} {{a.hour}}</li>
+    }
+</ul> -->
+
+
+
+<div class="container">
+    <p-table [value]="appointments" [paginator]="true" [rows]="10" [sortMode]="'multiple'">
+        <ng-template #header>
+            <tr>
+                <th pSortableColumn="date">תאריך <p-sortIcon [field]="'date'"></p-sortIcon></th>
+                <th pSortableColumn="hour">שעה <p-sortIcon [field]="'hour'"></p-sortIcon></th>
+                <th>ת"ז רופא</th>
+                <th>שם רופא</th>
+                <th>התמחות</th>
+                <th>ת"ז מטופל</th>
+                <th>שם מטופל</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-appointment>
+            <tr>
+                <td>{{ appointment.date | date:'dd/MM/yyyy' }}</td>
+                <td>{{ appointment.hour }}</td>
+                <td>{{ appointment.doctorId }}</td>
+                <td>{{ getDoctorName(appointment.doctorId) }}</td>
+                <td>{{ getSpecialtyName(appointment.doctorId) }}</td>
+                <td>{{ appointment.patientId }}</td>
+                <td>{{ getPatientName(appointment.patientId) }}</td>
+            </tr>
+
+        </ng-template>
+    </p-table>
+</div>

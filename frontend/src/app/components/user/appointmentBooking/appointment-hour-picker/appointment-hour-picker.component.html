@@ -1,0 +1,7 @@
+<div class="available-hours">
+    @for (h of availableHours; track $index) {
+    <p-button (click)="selectHour(h)" [rounded]="true" [variant]="h === selectedHour ? 'outlined' : 'text'">
+        {{ h }}
+    </p-button>
+    }
+</div>

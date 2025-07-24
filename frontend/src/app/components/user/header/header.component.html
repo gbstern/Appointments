@@ -1,0 +1,20 @@
+<header class="header">
+    <div class="logo" routerLink="/">
+        <!-- <img src="assets/clinic-logo.svg" alt="לוגו רפואית" /> -->
+        <span>רפואית</span>
+    </div>
+
+    <app-nav class="nav"></app-nav>
+
+    <div class="profile-section">
+        <span class="hello-message">
+            שלום
+            <b *ngIf="isLoggedIn && UserName.length">{{ UserName }}</b>
+            <b *ngIf="!isLoggedIn || !UserName.length">אורח</b>
+        </span>
+
+        <p-menu #profileMenu [popup]="true" [model]="profileMenuItems" (onShow)="onProfileMenuShow()"></p-menu>
+        <button pButton type="button" class="p-button-rounded p-button-text profile-icon" icon="pi pi-user"
+            (click)="profileMenu.toggle($event)" aria-label="פרופיל"></button>
+    </div>
+</header>

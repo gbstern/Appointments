@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "primeicons/primeicons.css";
+
+* {
+  direction: rtl;
+  font-family: Segoe UI;
+  margin: 0;
+}
+
+.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {
+  width: 30vw;
+}
+
+
+.p-password input {
+  width: 30vw;
+}
+
+.p-inputtext {
+  width: 30vw;
+}

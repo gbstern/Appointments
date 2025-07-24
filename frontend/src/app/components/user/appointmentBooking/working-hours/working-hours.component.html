@@ -1,0 +1,15 @@
+@if (workingHours.length > 0) {
+<div>
+    <h3>שעות פעילות</h3>
+    @for (wh of workingHours; track $index) {
+    <div>
+        <p>{{ getDayName(wh.day) }}: {{ wh.startTime }} - {{ wh.endTime }}</p>
+    </div>
+    }
+</div>
+}
+@else {
+<ng-template>
+    <p>אין תורים פנויים לרופא</p>
+</ng-template>
+}
